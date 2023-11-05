@@ -17,6 +17,9 @@ class node{
         this->next=NULL;
         this->prev=NULL;
     }
+    ~node(){
+        cout<<"\nNode with value: "<<this->data<<" DELETED"<<endl;
+    }
 };
 void print(node* head){
     node* temp=head;
@@ -93,6 +96,59 @@ void insertAtPosition(node* &head,node* &tail,int pos,int data){
     }
     
 }
+void deletenode(node* &head,node* &tail,int pos){
+    if(head==NULL){
+        cout<<"\nLinked List is Empty;";
+        return;
+    }
+    
+    if(head->next==NULL){
+        node* temp=head;
+        head=NULL;
+        temp=NULL;
+        delete temp;
+        return;
+    }
+    if(pos==1){
+        node* temp=head;
+        head=temp->next;
+        head->prev=NULL;
+        temp->next=NULL;
+        temp->prev=NULL;
+        delete temp;
+        return ;
+    }
+    int len=findlength(head);
+    if(pos>len){
+        cout<<"\nPlease enter a valid POSITION.";
+        return;
+    }
+    if(pos==len){
+        node* temp=tail;
+        tail=tail->prev;
+        tail->next=NULL;
+        temp->prev=NULL;
+        delete temp;
+        return;
+    }
+    else{
+        int i=1;
+        node* back=head;
+        while (i<pos-1)
+        {
+            back=back->next;
+            i++;
+        }
+        node* current=back->next;
+        back->next=current->next;
+        current->next->prev=back;
+        current->next=NULL;
+        current->prev=NULL;
+        delete current;
+        return;
+       
+    }
+}
 
 int main(){
     node* first=new node(20);
@@ -105,18 +161,13 @@ int main(){
     third->prev=second;
     node* head=first;
     node* tail=third;
-    cout<<"Print the original Linked list : \n";
-    print(head);
-    cout<<endl;
     insertAtHead(head,tail,100);
-    cout<<"\nPrinting the Doubly linked list after inserting the data at the HEAD:"<<endl;
-    print(head);
-
     insertAtTail(head,tail,500);
-    cout<<"\nPrinting linked list after inserting the data at the TAIL"<<endl;
-    print(head);
     insertAtPosition(head,tail,6,515);
-    cout<<"\nPrinting  linked list after inserting the data at the POSITION"<<endl;
+ 
     print(head);
-    
+    int pos=6;
+    deletenode(head,tail,pos);
+    cout<<"Printing linked list after deleting "<<pos<<"POSITION node:";
+    print(head);
 }
