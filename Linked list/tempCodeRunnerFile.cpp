@@ -1,1 +1,0 @@
-this->prev=NULL;
