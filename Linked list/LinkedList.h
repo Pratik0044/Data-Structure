@@ -91,3 +91,4 @@ void insertAtPosition(int pos,Node* &head,Node* &tail,int data){
     newnode->next=current;
     prev->next=newnode;
 }
+
