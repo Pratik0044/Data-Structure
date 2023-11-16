@@ -1,5 +1,6 @@
 // Sort the Linked List of o's 1's and 2's
 //By replacing the data of the Linked List 
+ 
 
 #include"LinkedList.h"
 #include<iostream>
@@ -17,7 +18,7 @@ void sortZeroOneTwo(Node* &head){
 
     int len=FindLength(head);
     Node* temp=head;
-
+    
    while(temp!=NULL)
     {
         
@@ -35,8 +36,9 @@ void sortZeroOneTwo(Node* &head){
             two++;
             temp=temp->next;
         }
-        
+       
     }
+   
     cout<<zero<<" "<<one<<" "<<two<<" "<<endl;
     temp=head;
     
@@ -55,7 +57,6 @@ void sortZeroOneTwo(Node* &head){
         temp->data=2;
         temp=temp->next;
     }
-    
     
     
 }
