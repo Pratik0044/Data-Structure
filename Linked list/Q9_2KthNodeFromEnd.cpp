@@ -6,16 +6,14 @@
 using namespace std;
 
 int getnode(Node* &head,int position){
-    if(head==NULL){
-        cout<<"LL is empty: "<<endl;
-        return -1;
-    }
+
     int len=FindLength(head);
-    int pos=len-position;
+    int pos=(len-position);
     Node* temp=head;
-    while (pos)
+    while (pos-1)
     {
         temp=temp->next;
+        pos--;
     }
     return temp->data;
     
@@ -32,6 +30,11 @@ int main(){
     insertAtTail(head,tail,110);
 
     print(head);
+    int pos;
+    cout<<"\nEnter the position from end: ";
+    cin>>pos;
+    cout<<pos<<" Element from end: ";
+    cout<<getnode(head,pos);
 
   
 }
