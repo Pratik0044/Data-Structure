@@ -1,3 +1,5 @@
+//find meddle of the LL by using simple method
+
 #include<iostream>
 using namespace std;
 
