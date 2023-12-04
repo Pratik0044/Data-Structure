@@ -2,24 +2,25 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class stack{
+class Stack{
     public: 
         int *arr;
         int top;
         int size;
-    stack(int size){
+    Stack(int size){
         arr= new int[size];
         this->size=size;
         top=-1;
     }
     //Function
     void push(int data){
-        if(size-top>1)
-            cout<<"Stack Overflow\n";
-        else{
+        if(size-top>1){
             top++;
             arr[top]=data;
         }
+            
+        else
+            cout<<"Stack Overflow\n";
     }
     void pop(){
         if(top==-1)
@@ -28,25 +29,25 @@ class stack{
             top--;
         
     }
-    void top(){
-        if(top==-1)
+    int gettop(){
+        if(top==-1){
             cout<<"Stack is Empty: \n";
-        
+        }
         else
-            cout<<arr[top];
+            return arr[top];
         
     }
-    void size(){
+    int getsize(){
         if(top==-1)
-            cout<<"0";
+            return 0;
         else
-            cout<<"top";
+            return top;
     }
-    void empty(){
+    bool isempty(){
         if(top==-1)
-            cout<<"Stack is already empty: \n";
+            return true; 
         else
-            top=-1;
+            return false;
         
     }
 
@@ -55,7 +56,21 @@ class stack{
 
 int main(){
 
+    Stack s(4);
+    s.push(10);
+    s.push(20);
+    s.push(30);
+    s.push(50);
+    s.push(60);
+    cout<<"\nEmpty test: "<<s.isempty()<<endl;
+    while (!s.isempty()){
+        cout<<s.gettop()<<" ";
+        s.pop();
+    }
+    cout<<"\nEmpty test: "<<s.isempty()<<endl;
+    cout<<"\nSize of stack: "<<s.getsize();
     
-
+    
+    
 return 0;
 }
