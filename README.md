@@ -1,4 +1,4 @@
-# Data-Structure-Essential-with_CPP-.
+# Data-Structure-Algorithm_CPP-.
 
 I am Pratik Vishwakarma .
 I study the Data structure Essensial from Udemy By Prateek Nagar
