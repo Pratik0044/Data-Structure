@@ -1,7 +1,10 @@
 #include<iostream>
-using namespace std;
-
-class queue{
-    int front=-1;
-    int rear=-1;
+class Queue{
+    public:
+    int front;
+    int rear;
+    int size
 };
+int main(){
+
+}
