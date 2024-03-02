@@ -59,12 +59,9 @@ class Queue{
     }
 
     int getSize(){
-
+        return rear-front;
     }
 
-    // int getSize(){
-    //     return rear-front;
-    // }
 
 };
 int main(){
@@ -77,6 +74,7 @@ int main(){
     q.push(500000);
     q.push(5000000);
 
-    // cout<<"Size of Queue is: "<<q.getSize()<<endl;
+    cout<<"Size of Queue is: "<<q.getSize()<<endl;
+    q.getFront();
     return 0;
 }
